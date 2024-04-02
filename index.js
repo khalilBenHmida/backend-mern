@@ -19,6 +19,9 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use('/api/auth', authController)
 app.use('/api/blog', blogController)
+app.use('/api/test', (req, res) => {
+    res.send("Hello routing")
+})
 
 // multer
 const storage = multer.diskStorage({

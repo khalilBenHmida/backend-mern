@@ -12,13 +12,13 @@ mongoose.set('strictQuery', false);
 mongoose.connect(process.env.MONGO_URL, () => console.log('MongoDB has been started successfully'))
 
 // routes
-app.use('/images', express.static('public/images'))
+app.use('/api/images', express.static('public/images'))
 
 app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
-app.use('/auth', authController)
-app.use('/blog', blogController)
+app.use('/api/auth', authController)
+app.use('/api/blog', blogController)
 
 // multer
 const storage = multer.diskStorage({

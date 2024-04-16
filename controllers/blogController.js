@@ -15,7 +15,7 @@ blogController.get('/find/:id', async (req ,res ) => {
     try {
         const blog = await Blog.findById(req.params.id).populate("userId", '-password')
         blog.views +=1
-        await blog.save() 
+        // await blog.save() 
         return res.status(200).json(blog)
     } catch (error) {
         return res.status(500).json(error)
